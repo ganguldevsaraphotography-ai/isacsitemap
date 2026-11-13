@@ -49,9 +49,16 @@ var D={
 };
 var LIST=Object.keys(D).map(function(n){return{n:n,k:n.split(/\s+/).map(function(w){return w.charAt(0)}).join("").toUpperCase()}}).sort(function(a,b){return b.k.length-a.k.length});
 function sup(t){return esc(t).replace(/\^(\d+)/g,"<sup>$1</sup>")}
-function rows(a,cls,label){
+function nm(x,cat,cls){var kind=cls==="c"?"Competition Room":"Waiting Room";
+ if(!/\d/.test(x.r))return x.r+(cls==="w"&&x.w&&/^Waiting/.test(x.w)?"":"");
+ var t=x.t||"";
+ if(/^(Competition|Waiting) Room \d$/i.test(t))return cat+" · "+t;
+ if(/room/i.test(t))return t;
+ return cat+" · "+kind+(t?" ("+t+")":"")}
+function rows(a,cls,label,cat){
  if(!a||!a.length)return '<div class="rb '+cls+'"><h4><i class="d '+cls+'"></i>'+label+'</h4><p class="rn">To be announced. Please check with the coordinators on the day.</p></div>';
- return '<div class="rb '+cls+'"><h4><i class="d '+cls+'"></i>'+label+'</h4>'+a.map(function(x){return '<div class="rr"><b>'+sup(x.r)+'</b><span>'+esc(x.w)+(x.t?" · "+esc(x.t):"")+'</span></div>'}).join("")+'</div>'}
+ return '<div class="rb '+cls+'"><h4><i class="d '+cls+'"></i>'+label+'</h4>'+a.map(function(x){var named=!/\d/.test(x.r);
+  return '<div class="rr"><p class="rname">'+esc(nm(x,cat,cls))+'</p><p class="rloc">'+(named?'':'<b>Room '+sup(x.r)+'</b>')+'<span>'+esc(x.w)+'</span></p></div>'}).join("")+'</div>'}
 function clear(){res.hidden=true;res.innerHTML="";msg.textContent="";msg.className="frmsg";[].forEach.call(map.querySelectorAll(".pin"),function(p){p.remove()});[].forEach.call(refs.children,function(l){l.className=""})}
 function pins(c,w){
  var used={};
@@ -67,7 +74,7 @@ f.addEventListener("submit",function(e){e.preventDefault();clear();
  if(!hit){msg.textContent="We couldn't match that code. Codes look like NPSJ01 (category letters + number 01 to 52). Check it and try again.";msg.className="frmsg bad";return}
  var shown=hit.k+(num<10?"0":"")+num;
  var d=D[hit.n];
- res.innerHTML='<p class="rcat">'+esc(hit.n)+'</p><p class="rcode">'+esc(shown)+'</p>'+rows(d.c,"c","Competition room")+rows(d.w,"w","Waiting room")+(d.n?'<p class="rn">'+esc(d.n)+'</p>':"");
+ res.innerHTML='<p class="rcat">'+esc(hit.n)+'</p><p class="rcode">'+esc(shown)+'</p>'+rows(d.c,"c","Competition room",hit.n)+rows(d.w,"w","Waiting room",hit.n)+(d.n?'<p class="rn">'+esc(d.n)+'</p>':"");
  res.hidden=false;pins(d.c,d.w);
 });
 inp.addEventListener("input",function(){if(!inp.value.trim())clear()});
