@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISAC 2026 – Inter School Announcing Competition</title>
+<meta name="description" content="Sri Lanka's premier trilingual media competition by the Ananda College Broadcasting Unit. Register your school and contestants.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="w">
+  <header class="top">
+    <a class="logo" href="#top" id="lg" aria-label="ISAC 2026"></a>
+    <nav aria-label="Main">
+      <a href="#sitemap">Site Map</a>
+      <a href="#about">About</a>
+      <a href="#competitions">Competitions</a>
+      <a href="#gallery" id="gnav">Gallery</a>
+      <a href="#committee">Board of Officials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <div class="hero" id="top">
+    <p class="kick">Ananda College Broadcasting Unit</p>
+    <h1 id="hl"></h1>
+    <p class="when" id="sub"></p>
+    <img id="hero" alt="">
+  </div>
+  <section id="sitemap"><h2>Site Map</h2>
+    <div class="fr">
+      <div class="frl">
+        <h3>Find your competition room</h3>
+        <p class="frh">Enter your contestant code to see your competition room and waiting room, and where to find them on the map.</p>
+        <form class="frform" id="frf" autocomplete="off" novalidate>
+          <label for="frc">Contestant code</label>
+          <input id="frc" name="code" placeholder="e.g. NPSJ01" autocapitalize="characters" spellcheck="false" maxlength="24">
+          <button class="btn" id="frb" type="submit">Find my room</button>
+        </form>
+        <div class="frmsg" id="frm" role="status" aria-live="polite"></div>
+        <div class="frres" id="frr" hidden></div>
+      </div>
+      <div class="frr2">
+        <div class="frmap" id="frmap"><img src="site-map-single.jpg" alt="Map of the Ananda College school grounds with numbered sections"></div>
+        <p class="frleg"><i class="d c"></i>Competition room <i class="d w"></i>Waiting room</p>
+        <h4 class="refh">References</h4>
+        <ol class="refs" id="refs">
+          <li data-n="1"><i>1</i>Kularathne Auditorium</li>
+          <li data-n="2"><i>2</i>Sathmahala</li>
+          <li data-n="3"><i>3</i>Olcott Hall</li>
+          <li data-n="4"><i>4</i>Art Section</li>
+          <li data-n="5"><i>5</i>Biology Section</li>
+          <li data-n="6"><i>6</i>Grade 11 Section</li>
+          <li data-n="7"><i>7</i>Technology Section</li>
+          <li data-n="8"><i>8</i>Grade 10 Section</li>
+        </ol>
+      </div>
+    </div>
+    <div class="bt frpdf"><a class="btn ghost" href="site-map.pdf" target="_blank" rel="noopener">Floor plans (PDF)</a><a class="btn ghost" href="site-map.pdf" download>Download PDF</a></div>
+  </section>
+  <section id="about"><h2>About</h2><div class="pre" id="ab"></div></section>
+  <section id="competitions"><h2>Competitions</h2><div class="grid" id="comps"></div></section>
+  <section id="gallery"><h2>Gallery</h2><div class="gal" id="gal"></div></section>
+  <section id="committee"><h2>Board of Officials</h2>
+    <div class="exrow">
+      <img class="exec" src="executive-committee.jpg" alt="ACBU Executive Committee" loading="lazy">
+      <div class="exbody">
+        <h3>Executive Committee</h3>
+        <div class="exlist">
+          <div class="exr"><span>President</span><div><b>Ginura Kariyawasam</b></div></div>
+          <div class="exr"><span>Vice President</span><div><b>Lithum Adhikari</b></div></div>
+          <div class="exr"><span>Secretaries</span><div><b>Vinuda Vidanagamage</b><b>Deshan Nadeera</b></div></div>
+          <div class="exr"><span>Treasurer</span><div><b>Sandas Usgoda Arachchi</b></div></div>
+          <div class="exr"><span>Assistant Treasurer</span><div><b>Maleesha Deneth</b></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="trow">
+      <div class="tg"><b>Sathru Kaveed</b><span>Chief English Announcer</span></div>
+      <div class="tg"><b>Sithum Sandeepa</b><span>Chief Sinhala Announcer</span></div>
+      <div class="tg"><b>Dinath Fernando</b><b>Lithum Lithnada</b><span>Technical Officers</span></div>
+    </div>
+    <div class="trow">
+      <div class="tg"><b>Naviru Mendis</b><b>Lisal Ranhiru</b><span>Chief Coordinators</span></div>
+      <div class="tg"><b>Nisal Thejana</b><b>Thevsara Nimsath</b><span>Competition Coordinators</span></div>
+      <div class="tg"><b>Anidu Imash</b><b>Anuja Kaluarachchi</b><span>Coordinators</span></div>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="cwrap">
+      <div>
+        <h2>Contact</h2>
+        <div class="pre" id="ct"></div>
+      </div>
+      <img class="clogos" src="schools.png" alt="Ananda College crest and ACBU 1973 emblem">
+    </div>
+  </section>
+  <footer>
+    <div class="fl">
+      <p>© ACBU 2026 &nbsp;|&nbsp; ALL RIGHTS RESERVED</p>
+      <nav class="social" id="social" aria-label="Social media" hidden>
+        <a id="s-youtube" href="#" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" hidden><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        <a id="s-whatsapp" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp" hidden><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a id="s-facebook" href="#" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook" hidden><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a id="s-instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram" hidden><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3"/></svg></a>
+      </nav>
+    </div>
+    <p>Webpage designed and developed by Gangul Devsara</p>
+  </footer>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lbx" id="lbx" aria-label="Close">&times;</button>
+  <button class="lbn lbp" id="lbp" aria-label="Previous photo">&#8249;</button>
+  <figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure>
+  <button class="lbn" id="lbnx" aria-label="Next photo">&#8250;</button>
+</div>
+<div class="ov" id="ov" role="dialog" aria-modal="true"><div class="box" id="box"></div></div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script src="find.js"></script>
+<script src="gallery.js"></script>
+</body>
+</html>
