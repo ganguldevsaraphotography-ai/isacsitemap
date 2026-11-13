@@ -2,6 +2,7 @@
    A code starts with the initials of its category name (News Presenting Sinhala Junior = NPSJ...). */
 (function(){
 var f=document.getElementById("frf");if(!f)return;
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 var inp=document.getElementById("frc"),msg=document.getElementById("frm"),res=document.getElementById("frr"),map=document.getElementById("frmap"),refs=document.getElementById("refs");
 /* where each numbered spot sits on site-map-single.jpg, in % of the image */
 var POS={1:[39.4,31.2],2:[26.6,32.1],3:[33.2,63.9],4:[49.6,78.7],5:[85.5,78.0],6:[27.1,89.9],7:[78.1,34.7],8:[11.2,52.4]};
@@ -59,7 +60,9 @@ function rows(a,cls,label,cat){
  if(!a||!a.length)return '<div class="rb k-'+cls+'"><h4><i class="d k-'+cls+'"></i>'+label+'</h4><p class="rn">To be announced. Please check with the coordinators on the day.</p></div>';
  return '<div class="rb k-'+cls+'"><h4><i class="d k-'+cls+'"></i>'+label+'</h4>'+a.map(function(x){var named=!/\d/.test(x.r);
   return '<div class="rr"><p class="rname">'+esc(nm(x,cat,cls))+'</p><p class="rloc">'+(named?'':'<b>Room '+sup(x.r)+'</b>')+'<span>'+esc(x.w)+'</span></p></div>'}).join("")+'</div>'}
-function clear(){res.hidden=true;res.innerHTML="";msg.textContent="";msg.className="frmsg";[].forEach.call(map.querySelectorAll(".pin"),function(p){p.remove()});[].forEach.call(refs.children,function(l){l.className=""})}
+function clear(){res.hidden=true;res.innerHTML="";msg.textContent="";msg.className="frmsg";
+ var ps=map?map.querySelectorAll(".pin"):[];for(var i=0;i<ps.length;i++){if(ps[i].parentNode)ps[i].parentNode.removeChild(ps[i])}
+ var ls=refs?refs.querySelectorAll("li"):[];for(var j=0;j<ls.length;j++)ls[j].className=""}
 function pins(c,w){
  var used={};
  function put(a,cls){(a||[]).forEach(function(x){var key=x.s+cls;if(used[key])return;used[key]=1;var p=POS[x.s];if(!p)return;
@@ -67,7 +70,7 @@ function pins(c,w){
   if(cls==="w"&&used[x.s+"c"])e.className+=" off";e.title=(cls==="c"?"Competition room":"Waiting room");map.appendChild(e);
   var li=refs.querySelector('[data-n="'+x.s+'"]');if(li&&li.className.indexOf("k-"+cls)<0)li.className=(li.className+" k-"+cls).trim()})}
  put(c,"c");put(w,"w")}
-f.addEventListener("submit",function(e){e.preventDefault();try{lookup()}catch(x){msg.textContent="Something went wrong. Please refresh the page and try again.";msg.className="frmsg bad";if(window.console)console.error(x)}});
+f.addEventListener("submit",function(e){e.preventDefault();try{lookup()}catch(x){msg.textContent="Something went wrong ("+(x&&x.message?x.message:x)+"). Please refresh the page and try again.";msg.className="frmsg bad";if(window.console)console.error(x)}});
 function lookup(){clear();
  var raw=inp.value.trim().toUpperCase().replace(/[^A-Z0-9]/g,"");
  if(!raw){msg.textContent="Enter your contestant code.";msg.className="frmsg bad";return}
@@ -76,6 +79,6 @@ function lookup(){clear();
  var shown=hit.k+(num<10?"0":"")+num;
  var d=D[hit.n];
  res.innerHTML='<p class="rcat">'+esc(hit.n)+'</p><p class="rcode">'+esc(shown)+'</p>'+rows(d.c,"c","Competition room",hit.n)+rows(d.w,"w","Waiting room",hit.n)+(d.n?'<p class="rn">'+esc(d.n)+'</p>':"");
- res.hidden=false;pins(d.c,d.w)}
+ res.hidden=false;try{pins(d.c,d.w)}catch(z){if(window.console)console.error(z)}}
 inp.addEventListener("input",function(){if(!inp.value.trim())clear()});
 })();
